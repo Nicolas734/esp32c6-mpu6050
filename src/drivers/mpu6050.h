@@ -2,6 +2,7 @@
 #define __MPU_6050_H__ 1
 
 #include <Arduino.h>
+#include <Wire.h> 
 
 class MPU6050Driver {
     public:
@@ -15,8 +16,10 @@ class MPU6050Driver {
         void calibrateAccel(size_t n = 500);
 
     private:
-        float _accelScale = 16384.0f; // ±2g
-        float _gyroScale  = 131.0f;   // ±250 dps
+        static constexpr uint8_t REG_PWR_MGMT_1 = 0x6B;
+        static constexpr uint8_t REG_ACCEL_XOUT_H = 0x3B;
+        static constexpr float ACC_SCALE = 16384.0f; // LSB/g
+        static constexpr float GYR_SCALE = 131.0f;   // LSB/(°/s)
 };
 
 #endif
