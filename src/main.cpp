@@ -1,5 +1,10 @@
 #include <Arduino.h>
 #include <Wire.h> 
+#include "drivers/mpu6050.h"
+#include "modules/stepper.h"
+#include "modules/bluetooth.h"
+#include "modules/app.h"
+
 
 #define MPU_ADDR 0x68 
 #define MPU_SDA 6 
